@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { ArrowRight, Shield, Volume2, Users, Eye, Github, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,16 +25,18 @@ export default function LandingPage() {
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#reports" className="hover:text-foreground transition-colors">Reports</a>
           </div>
-          <Button size="sm" className="hidden md:flex rounded-full font-bold">
-            Student Login
-          </Button>
+          <Link href="/app">
+            <Button size="sm" className="hidden md:flex rounded-full font-bold">
+              Go to App
+            </Button>
+          </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="relative z-10 pt-20 pb-32 md:pt-32 md:pb-48 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -50,37 +53,41 @@ export default function LandingPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">VOICE.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-lg mb-8 leading-relaxed">
-              An anonymous student feedback and complaint platform exclusively for St. Joseph’s College (Autonomous), Devagiri. 
+              An anonymous student feedback and complaint platform exclusively for St. Joseph’s College (Autonomous), Devagiri.
               <span className="block mt-2 font-medium text-foreground">Presented by Samathwa College Union 2025–26.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="rounded-full text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:scale-105">
-                Raise Your Voice <Volume2 className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full text-lg h-14 px-8 border-2 hover:bg-secondary/10 hover:text-secondary hover:border-secondary transition-colors">
-                View Reports <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link href="/app">
+                <Button size="lg" className="rounded-full text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:scale-105">
+                  Raise Your Voice <Volume2 className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/app">
+                <Button size="lg" variant="outline" className="rounded-full text-lg h-14 px-8 border-2 hover:bg-secondary/10 hover:text-secondary hover:border-secondary transition-colors">
+                  View Reports <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
             <div className="relative aspect-square rounded-3xl overflow-hidden border-4 border-foreground/5 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
-               {/* Using the attached image as the hero visual */}
-               <img 
-                 src={aavaazImage} 
-                 alt="Aavaaz Poster Art" 
-                 className="object-cover w-full h-full"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+              {/* Using the attached image as the hero visual */}
+              <img
+                src={aavaazImage}
+                alt="Aavaaz Poster Art"
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             </div>
-            
+
             {/* Floating Badge */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
@@ -102,19 +109,19 @@ export default function LandingPage() {
       <section id="features" className="py-24 bg-foreground text-background relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-3 gap-8">
-            <FeatureCard 
+            <FeatureCard
               icon={<Shield className="h-8 w-8" />}
               title="Privacy First"
               description="Built with privacy-preserving architecture. We don't track your IP or store personal identifiers."
               index={0}
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Eye className="h-8 w-8" />}
               title="Radical Transparency"
               description="Open source codebase. Every report handling process is visible to the student body."
               index={1}
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Users className="h-8 w-8" />}
               title="Community Driven"
               description="Moderated by elected student representatives, ensuring fair and unbiased resolution."
@@ -128,15 +135,17 @@ export default function LandingPage() {
       <section className="py-24 container mx-auto px-6">
         <div className="bg-primary/5 border border-primary/10 rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50" />
-          
+
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">Ready to be heard?</h2>
             <p className="text-lg text-muted-foreground mb-10">
-              Your feedback shapes our campus. Join thousands of students making a difference at St. Joseph’s College.
+              Your feedback shapes our campus. Join thousands of students making a difference at St. Joseph’s College (Autonomous), Devagiri.
             </p>
-            <Button size="lg" className="rounded-full h-16 px-10 text-xl font-bold bg-foreground text-background hover:bg-foreground/90">
-              Submit a Complaint
-            </Button>
+            <Link href="/submit-a-complaint">
+              <Button size="lg" className="rounded-full h-16 px-10 text-xl font-bold bg-foreground text-background hover:bg-foreground/90">
+                Submit a Complaint
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -149,17 +158,17 @@ export default function LandingPage() {
               <h3 className="font-display font-bold text-xl text-primary mb-1">AAVAAZ</h3>
               <p className="text-sm text-muted-foreground">St. Joseph’s College (Autonomous), Devagiri</p>
             </div>
-            
+
             <div className="flex items-center gap-6">
-               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy</a>
-               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms</a>
-               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Guidelines</a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy</a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms</a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Guidelines</a>
             </div>
 
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <a 
-                href="https://github.com/nandakiranr" 
-                target="_blank" 
+              <a
+                href="https://github.com/nandakiranr"
+                target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
               >
@@ -179,7 +188,7 @@ export default function LandingPage() {
 
 function FeatureCard({ icon, title, description, index }: { icon: React.ReactNode, title: string, description: string, index: number }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
